@@ -56,7 +56,7 @@ class ColoniesController < ApplicationController
   def destroy
     @colony.destroy
     respond_to do |format|
-      format.html { redirect_to colonies_url, notice: 'Colony was successfully destroyed.' }
+      format.html { redirect_to colonies_path, notice: 'Colony was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
