@@ -19,8 +19,8 @@
   <tbody>
     <% @colonies.each do |colony| %>
       <tr>
-        <td><%= colony.name %></td>
-        <td><%= colony.address %></td>
+        <td><%= colony.name.capitalize %></td>
+        <td><%= colony.address.capitalize %></td>
         <td><%= link_to 'Edit', edit_colony_path(colony) %></td>
 
       </tr>
