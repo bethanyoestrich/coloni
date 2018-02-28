@@ -28,7 +28,7 @@ class ColoniesController < ApplicationController
 
     respond_to do |format|
       if @colony.save
-        format.html { redirect_to @colony, notice: 'Colony was successfully created.' }
+        format.html { redirect_to colonies_path, notice: 'Colony was successfully created.' }
         format.json { render :show, status: :created, location: @colony }
       else
         format.html { render :new }
