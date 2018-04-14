@@ -14,6 +14,10 @@
   body{
     background-color: #FFC300;
   }
+  #map {
+        height: 400px;
+        width: 400px;
+       }
   </style>
 
   <tbody>
@@ -25,6 +29,23 @@
 
       </tr>
     <% end %>
+    <div id="map"></div>
+    <script>
+    function initMap() {
+      var indianapolis = {lat: 39.7844, lng: -86.154};
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: indianapolis
+      });
+      var marker = new google.maps.Marker({
+        position: indianapolis,
+        map: map
+      });
+    }
+  </script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5syu7dXNvsh51_sRLIawII9BA0p2uGgI&callback=initMap">
+  </script>
   </tbody>
 </table>
 
