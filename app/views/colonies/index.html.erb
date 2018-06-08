@@ -8,6 +8,7 @@
     <tr>
       <th><font color ="#FF5733">Name</font></th>
       <th><font color ="#FF5733">Address</font></th>
+      <th>managed by</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -25,7 +26,7 @@
         <td><%= colony.name.titleize %></td>
         <td><%= colony.address.titleize %></td>
         <td><%= link_to 'Edit', edit_colony_path(colony) %></td>
-
+        <td>managed by <%=colony.user.username if colony.user%></td>
       </tr>
     <% end %>
     <div id="map"></div>

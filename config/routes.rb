@@ -3,10 +3,14 @@ Rails.application.routes.draw do
   resources :colonies do
     member do
       post "cat"
+    end
   end
-end
+  get '/signup', to: 'users#new'
+  resources :users, except:[:new]
+
   get "/home", controller: :home, action: :index
 end
+
 
 
 

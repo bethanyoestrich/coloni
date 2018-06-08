@@ -25,7 +25,7 @@ class ColoniesController < ApplicationController
   # POST /colonies.json
   def create
     @colony = Colony.new(colony_params)
-
+    @colony.user = User.first
     respond_to do |format|
       if @colony.save
         format.html { redirect_to colonies_path, notice: 'Colony was successfully created.' }
@@ -74,7 +74,7 @@ class ColoniesController < ApplicationController
   end
 
   private
-  
+
   # Use callbacks to share common setup or constraints between actions.
   def set_colony
     @colony = Colony.find(params[:id])
