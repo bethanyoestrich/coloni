@@ -22,10 +22,10 @@
   <tbody>
     <% @colonies.each do |colony| %>
       <tr>
-        <td><%= colony.name.titleize %></td>
+        <td><%= link_to colony.name.titleize, colony %></td>
         <td><%= colony.address.titleize %></td>
         <td><%= link_to 'Edit', edit_colony_path(colony) %></td>
-        <td><%= colony.user%></td>
+        <td><%= link_to colony.user%></td>
       </tr>
     <% end %>
     <div id="map"></div>
