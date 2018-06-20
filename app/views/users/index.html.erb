@@ -1,4 +1,5 @@
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<%= render 'layouts/navigation' %>
 <h2 align = "center"> Caretakers</h2>
 <div align = "center">
   <% @users.each do |user|%>
@@ -14,3 +15,4 @@
     </ul>
     <% end %>
   </div>
+<%= render "layouts/footer" %>

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :colonys
+  has_many :colonies
   validates :username, presence: true,
   uniqueness: {case_sensative: false},
   length: {minimum:3, maximum:25}

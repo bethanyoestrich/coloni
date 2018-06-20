@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+<%= render 'layouts/navigation' %>
 <head>
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 </head>
@@ -25,7 +26,11 @@
         <td><%= link_to colony.name.titleize, colony %></td>
         <td><%= colony.address.titleize %></td>
         <td><%= link_to 'Edit', edit_colony_path(colony) %></td>
-        <td><%= link_to colony.user%></td>
+        <td>
+          <% if @colony.user %>
+            <%=link_to @colony.user.username, user_path(@colony.user)%>
+          <% end %>
+          </td>
       </tr>
     <% end %>
     <div id="map"></div>
@@ -52,3 +57,4 @@
 
 <%= link_to 'New Colony', new_colony_path %>
 </body>
+<%= render "layouts/footer" %>
