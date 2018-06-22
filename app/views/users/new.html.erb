@@ -1,6 +1,19 @@
 
 <%= render 'layouts/navigation' %>
 <br>
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:
+
+    <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </h3>
+  </div>
+<% end %>
+<br>
 <h2 align = "center" id = #user>Signup for Coloni </h2>
 <div class = 'row'>
   <div class = 'col-xs-12'>
