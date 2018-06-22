@@ -5,8 +5,8 @@
           <li class = "header"><a href = home#index>home </a></li>
           <li class = "header"><a href= home#about> about</a> </li>
           <% if logged_in?%>
-            <li class = "header"><a href = colonies#index >my coloni</a> </li>
-            <li class = "header"><%= link_to "Log out", logout_path%></li>
+            <li class = "header"><a href = colonies#index >coloni index</a> </li>
+            <li class = "header"><li><%= link_to 'Log out', logout_path, method: :delete %></li>
             <%else%>
           <li class = "header"> contact </li>
           <li class = "header"><%= link_to "sign up", signup_url %> </li>

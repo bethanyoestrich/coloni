@@ -26,11 +26,7 @@
         <td><%= link_to colony.name.titleize, colony %></td>
         <td><%= colony.address.titleize %></td>
         <td><%= link_to 'Edit', edit_colony_path(colony) %></td>
-        <td>
-          <% if @colony.user %>
-            <%=link_to @colony.user.username, user_path(@colony.user)%>
-          <% end %>
-          </td>
+        <td><%= colony.user.username if colony.user %></td>
       </tr>
     <% end %>
     <div id="map"></div>
