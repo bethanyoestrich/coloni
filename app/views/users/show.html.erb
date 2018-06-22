@@ -1,0 +1,6 @@
+<%= render "layouts/navigation" %>
+<br>
+<h2> Welcome to <%=@user.username %>'s colony page</h2>
+  <h4 align = "center"><%= @user.username%>'s colonies</h4>
+<%= render @user.colonies, object: @user_colonies%>
+<%= render "layouts/footer" %>
