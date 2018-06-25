@@ -1,56 +1,5 @@
-<p id="notice"><%= notice %></p>
-<head>
-</head>
-<body>
 <%= render 'layouts/navigation' %>
 <br>
-<table class = "table table-hover">
-  <thead>
-    <tr>
-      <th><font color ="#FF5733">Name</font></th>
-      <th><font color ="#FF5733">Address</font></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <style>
-  body
-  #map {
-        height: 400px;
-        width: 400px;
-       }
-  </style>
-
-  <tbody>
-    <% @colonies.each do |colony| %>
-      <tr>
-        <td><%= link_to colony.name, colony %></td>
-        <td><%= colony.address.titleize %></td>
-        <td><%= link_to 'Edit', edit_colony_path(colony) %></td>
-        <td><%= colony.user.username if colony.user %></td>
-      </tr>
-    <% end %>
-    <div id="map"></div>
-    <script>
-    function initMap() {
-      var indianapolis = {lat: 39.7844, lng: -86.154};
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
-        center: indianapolis
-      });
-      var marker = new google.maps.Marker({
-        position: indianapolis,
-        map: map
-      });
-    }
-  </script>
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5syu7dXNvsh51_sRLIawII9BA0p2uGgI&callback=initMap">
-  </script>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Colony', new_colony_path %>
-</body>
+<h2>All listed colonies</h2>
+<%= render 'colony', object: @colonies%>
 <%= render "layouts/footer" %>
