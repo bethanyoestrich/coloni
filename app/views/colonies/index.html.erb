@@ -23,7 +23,7 @@
   <tbody>
     <% @colonies.each do |colony| %>
       <tr>
-        <td><%= link_to colony.name.titleize, colony %></td>
+        <td><%= link_to colony.name, colony %></td>
         <td><%= colony.address.titleize %></td>
         <td><%= link_to 'Edit', edit_colony_path(colony) %></td>
         <td><%= colony.user.username if colony.user %></td>
