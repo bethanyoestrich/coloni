@@ -2,7 +2,8 @@
 <%= render 'layouts/navigation' %>
 <br>
 <% if @user.errors.any? %>
-  <div id="error_explanation">
+  <div id="error_explanation" class = "error_explanation">
+
     <h3><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:
 
     <ul>

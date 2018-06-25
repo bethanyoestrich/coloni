@@ -69,7 +69,8 @@ nav{
   font-family: 'Amatic SC', cursive;
   height: 90px;
   padding-bottom:40px;
-  li{
+
+.header{
   list-style: none;
   display: inline-block;
   float: right;
@@ -109,4 +110,8 @@ nav{
   font-family:sans-serif;
   font-size:20px;
   font-weight:normal;
+}
+.error_explanation li{
+  text-align: center;
+  list-style: none;
 }
