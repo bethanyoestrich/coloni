@@ -36,15 +36,16 @@ before_action :require_admin, only:[:destroy]
     @user.destroy
     flash[:danger] = "User and all articles created by user have been deleted"
     redirect_to users_path
-
+end
 
   private
+
   def user_params
     params.require(:user).permit(:username, :email, :password)
   end
 
   def set_user
-    @user=User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def require_same_user
@@ -60,5 +61,4 @@ before_action :require_admin, only:[:destroy]
       redirect_to root_path
     end
   end
-end
 end
