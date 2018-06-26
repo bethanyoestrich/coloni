@@ -1,6 +1,6 @@
 class ColoniesController < ApplicationController
   before_action :set_colony, only: [:show, :edit, :update, :destroy]
-  before_action  :require_user, except:[:index, :show]
+  before_action :require_user, except:[:index, :show]
   before_action :require_same_user, only:[:edit, :update, :destory]
 
   # GET /colonies
@@ -27,7 +27,7 @@ class ColoniesController < ApplicationController
   # POST /colonies.json
   def create
     @colony = Colony.new(colony_params)
-    @colony.user = User.first
+    @colony.user = current_user
     respond_to do |format|
       if @colony.save
         format.html { redirect_to colonies_path, notice: 'Colony was successfully created.' }
@@ -87,6 +87,9 @@ class ColoniesController < ApplicationController
     params.require(:colony).permit(:name, :address)
   end
 
+  def require_user
+  end
+  
   def require_same_user
     if current_user!=@colony.user and !current_user.admin?
       flash[:danger] = "you can only edit or delete your own articles"

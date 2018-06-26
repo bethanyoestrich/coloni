@@ -36,7 +36,7 @@ before_action :require_admin, only:[:destroy]
     @user.destroy
     flash[:danger] = "User and all articles created by user have been deleted"
     redirect_to users_path
-end
+   end
 
   private
 
@@ -61,4 +61,5 @@ end
       redirect_to root_path
     end
   end
+  
 end
