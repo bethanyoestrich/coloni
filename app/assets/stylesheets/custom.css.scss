@@ -31,7 +31,7 @@ h1,
 h2{
   font-family:'Pacifico', cursive;
   color: #9b59b6;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 h1{
@@ -72,6 +72,9 @@ nav{
   height: 90px;
   padding-bottom:40px;
 
+
+
+
 .header{
   list-style: none;
   display: inline-block;
@@ -98,8 +101,9 @@ nav{
 }
 .header a:hover,
 .header a:active{
-  color:#1abc9c;
+  color:#f1c40f;
   border-bottom: 2px, solid #fff;
+  font-weight: 600;
 }
 
 .sign_up{

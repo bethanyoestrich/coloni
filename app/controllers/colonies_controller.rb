@@ -30,7 +30,7 @@ class ColoniesController < ApplicationController
     @colony.user = current_user
     respond_to do |format|
       if @colony.save
-        format.html { redirect_to colonies_path, notice: 'Colony was successfully created.' }
+        format.html { redirect_to user_path(@current_user), notice: 'Colony was successfully created.' }
         format.json { render :show, status: :created, location: @colony }
       else
         format.html { render :new }
@@ -89,7 +89,7 @@ class ColoniesController < ApplicationController
 
   def require_user
   end
-  
+
   def require_same_user
     if current_user!=@colony.user and !current_user.admin?
       flash[:danger] = "you can only edit or delete your own articles"

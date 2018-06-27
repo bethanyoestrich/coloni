@@ -61,5 +61,5 @@ before_action :require_admin, only:[:destroy]
       redirect_to root_path
     end
   end
-  
+
 end

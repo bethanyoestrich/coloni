@@ -4,16 +4,23 @@
         <ul class = .amatic>
           <li class = "header"><a href = home#index>home </a></li>
           <li class = "header"><a href= home#about> about</a> </li>
-          <% if logged_in?%>
-            <li class = "header"><a href = colonies#index >coloni index</a> </li>
-            <li class = "header"><%= link_to 'Log out', logout_path, method: :delete %></li>
-            <li class = "header"><%= link_to "Add colony", new_colony_path%></li>
-            <li class = "header"><a href = users#index> all users</li>
-            <li class = "header"><%= link_to "my colonies", new_colony_path%></li>
-            <%else%>
-          <li class = "header"> contact </li>
-          <li class = "header"><%= link_to "sign up", signup_url %> </li>
-          <li class = "header"><%= link_to "log in", login_path %></li>
-          <%end%>
+        <%if logged_in? && current_user.admin?%>
+          <li class = "header"><%= link_to 'Log out', logout_path, method: :delete %></li>
+          <li class = "header"><%= link_to "Add colony", new_colony_path%></li>
+          <li class = "header"><%= link_to "my colonies", new_colony_path%></li>
 
-        </ul>
+                <li class = "header"><%=link_to("All Users", users_path)%></li>
+                <li class = "header"><%=link_to("All colonies", colonies_path)%> </li>
+              </ul>
+
+      <% elsif logged_in?%>
+        <li class = "header"><%= link_to 'Log out', logout_path, method: :delete %></li>
+        <li class = "header"><%= link_to "Add colony", new_colony_path%></li>
+          <li class = "header"><%= link_to "my colonies", new_colony_path%></li>
+      <%else %>
+      <li class = "header"> contact </li>
+      <li class = "header"><%= link_to "sign up", signup_url %> </li>
+      <li class = "header"><%= link_to "log in", login_path %></li>
+      <%end%>
+
+      </ul>
