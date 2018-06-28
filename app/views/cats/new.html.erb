@@ -1,0 +1,11 @@
+<%= render "layouts/navigation" %>
+<br>
+<h2>create a new cat!</h2>
+
+<%= form_for(colony_cat_path(colony), :html => {class:"form-horizontal", role:"form"}) do |f|%>
+<div class = "form-group">
+  <div class ="col-sm-8">
+    <% f.text_field:name, class:"form-control", placeholder:"cats name", autofocus: true%>
+  </div>
+</div>
+<%end%>

@@ -1,21 +1,24 @@
 Rails.application.routes.draw do
   root 'home#index'
+
   resources :colonies do
-    member do
-      post "cat"
-    end
+    resources :cats, only: [:index, :new, :create]
   end
+
+  resources :cats, only: [:show, :edit, :update, :destroy]
+
   get '/signup', to: 'users#new'
   resources :users, except:[:new]
 
   get "/home", controller: :home, action: :index
 
-
   get 'login', to:'sessions#new'
   post 'login', to:'sessions#create'
   delete 'logout' , to:'sessions#destroy'
-
 end
+
+
+
 
 
 

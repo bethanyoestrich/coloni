@@ -1,11 +1,6 @@
 <%= render 'layouts/navigation' %>
 <br>
-<h1>Update Colony Info</h1>
-<style> body{
-  background-color: #c6359B;
-}
-</style>
-
+<h2>Update Colony Info</h2>
 <%= render 'form', colony: @colony %>
 
 <%= link_to "Delete", @colony, method: :delete, data: { confirm: 'Are you sure?' } %>
