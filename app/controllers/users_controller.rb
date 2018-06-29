@@ -20,7 +20,7 @@ before_action :require_admin, only:[:destroy]
   end
 
   def index
-    @users = User.order(:name).page params[:page]
+    @users = User.all
   end
 
   def edit
