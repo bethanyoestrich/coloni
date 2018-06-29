@@ -5,6 +5,8 @@
       <%=link_to colony.name, colony_path(colony) %>
     </div>
     <div class ="colony address">
+      <%=colony.address%>
+    </div>
       <div class = "colony-meta-details">
         <small> Cared by <%= colony.user.username if colony.user%>
           <br>

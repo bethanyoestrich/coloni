@@ -20,7 +20,7 @@ before_action :require_admin, only:[:destroy]
   end
 
   def index
-    @users = User.all
+    @users = User.order(:name).page params[:page]
   end
 
   def edit
@@ -61,5 +61,6 @@ before_action :require_admin, only:[:destroy]
       redirect_to root_path
     end
   end
+
 
 end

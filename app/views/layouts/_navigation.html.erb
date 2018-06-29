@@ -7,7 +7,7 @@
         <%if logged_in? && current_user.admin?%>
           <li class = "header"><%= link_to 'Log out', logout_path, method: :delete %></li>
           <li class = "header"><%= link_to "Add colony", new_colony_path%></li>
-          <li class = "header"><%= link_to "my colonies", new_colony_path%></li>
+          <li class = "header"><%= link_to "my colonies", user_path(current_user.id)%></li>
 
                 <li class = "header"><%=link_to("All Users", users_path)%></li>
                 <li class = "header"><%=link_to("All colonies", colonies_path)%> </li>
@@ -16,7 +16,7 @@
       <% elsif logged_in?%>
         <li class = "header"><%= link_to 'Log out', logout_path, method: :delete %></li>
         <li class = "header"><%= link_to "Add colony", new_colony_path%></li>
-          <li class = "header"><%= link_to "my colonies", new_colony_path%></li>
+          <li class = "header"><%= link_to "my colonies", user_path(current_user.id)%></li>
       <%else %>
       <li class = "header"> contact </li>
       <li class = "header"><%= link_to "sign up", signup_url %> </li>
