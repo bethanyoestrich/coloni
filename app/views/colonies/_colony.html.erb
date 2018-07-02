@@ -1,11 +1,12 @@
 
+  <% @colonies.each do |colony| %>
 <div class = "col-xs-8 col-xs-offset-2">
   <div class = "well well-lg">
     <div class = "colony-name">
       <%=link_to colony.name, colony_path(colony) %>
     </div>
     <div class ="colony address">
-      <%=colony.address%>
+      <%= colony.address %>
     </div>
       <div class = "colony-meta-details">
         <small> Cared by <%= colony.user.username if colony.user%>
@@ -23,5 +24,8 @@
       <%end%>
     </div>
   </div>
+
 </div>
+
 </div>
+<%end%>
