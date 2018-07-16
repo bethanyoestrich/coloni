@@ -4,7 +4,7 @@
 <div class = "well col-xs-8 col-xs-offset-2">
   <h4 class ="center description">Address:</h4>
 
-  <hr>
+  <br>
 
   <%= simple_format(@colony.address) %>
   <% if @colony.user %>
@@ -16,16 +16,15 @@
         </div>
       </div>
     </ul>
+    <%end%>
 
-
+<%if logged_in? && (current_user == @colony.user || current_user.admin?)%>
   <div class="article-actions">
-      <%if logged_in? && (current_user == @colony.user || current_user.admin?)%>
     <%=link_to "edit this colony", edit_colony_path(@colony), class:"btn btn-xs btn-primary"%>
     <%=link_to "delete this colony", colony_path(@colony), method: :delete,
     data: {confirm: "are you sure you want to delete this colony?"},
     class: "btn btn-xs btn-danger" %>
-    <%end%>
-      <% end %>
+  </div>
+      <%end%>
     <%= link_to "View all colonies", colonies_path, class: "btn btn-xs btn success"%>
-
-    <%= render "layouts/footer" %>
+<%end%>
