@@ -12,7 +12,7 @@ class ColoniesController < ApplicationController
   # GET /colonies/1
   # GET /colonies/1.json
   def show
-  
+
   end
 
   # GET /colonies/new

@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     resources :cats, only: [:index, :new, :create]
   end
 
-  resources :cats, only: [:show, :edit, :update, :destroy]
 
   get '/signup', to: 'users#new'
   resources :users, except:[:new]

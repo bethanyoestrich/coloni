@@ -1,85 +1,98 @@
 <%= render "layouts/navigation" %>
 <br>
 <h2>create a new cat!</h2>
+<div class ="center">
+    <%= form_for(@cat, url: colony_cats_path, action: "POST", html: {class: "new_cat_form"}) do |f| %>
+    <div class = "row">
+      <div class = "col-lg">
+        <div class = "form-group">
+          <div class = "control-label col-sm-2">
+            <%= f.label :name, "cat's name" %>
+          </div>
+          <div class = "col-sm-9">
+            <%= f.text_field :name, class: "form-control", placeholder: "enter name", autofocus: true %>
+          </div>
+        </div>
+        <div class = "form-group">
+          <div class = "control-label col-sm-2">
+            <%= f.label :age, "cat's age" %>
+          </div>
+          <div class = "col-sm-9">
+            <%= f.number_field :age, class: "form-control", placeholder: "enter age", autofocus: true %>
+          </div>
+        </div>
+        <div class = "form-group">
+          <div class = "control-label col-sm-2">
+            <%= f.label :vaccinated, "is cat vaccinated?" %>
+          </div>
+          <div class = "col-sm-9">
+            <%= f.text_field :vaccinated, class: "form-control", placeholder: "enter name", autofocus: true %>
+          </div>
+        </div>
+    <br>
 
+        <div class = "form-group">
+          <div class = "control-label col-sm-2">
+            <%= f.label :spayneuter, "is cat fixed?" %>
+          </div>
+          <div class = "col-sm-9">
+            <%= f.text_field :spayneuter, class: "form-control", placeholder: "s/n status", autofocus: true %>
+          </div>
+        </div>
 
-<%=form_for(colony_cats_path, :html => {class:"form-horizontal", role:"form"}) do |f|%>
-<div class = "form-group">
-  <div class = "control-label col-sm-2">
-    <%= f.label :"cat's name"%>
-  </div>
-    <div class = "col-sm-9">
-        <%= f.text_field :name, class: "form-control", placeholder: "enter name", autofocus:true %>
-    </div>
-</div>
-<div class = "form-group">
-  <div class = "control-label col-sm-2">
-    <%= f.label :"cat's approximate age"%>
-  </div>
-    <div class = "col-sm-9">
-        <%= f.number_field :age, class: "form-control", placeholder: "enter age", autofocus:true %>
-    </div>
-</div>
-<div class = "form-group">
-  <div class = "control-label col-sm-2">
-    <%= f.label :"is cat vaccinated?"%>
-  </div>
-    <div class = "col-sm-9">
-        <%= f.text_field :vaccinated, class: "form-control", placeholder: "enter name", autofocus:true %>
-    </div>
-</div>
-<div class = "form-group">
-  <div class = "control-label col-sm-2">
-    <%= f.label :"is cat altered?"%>
-  </div>
-    <div class = "col-sm-9">
-        <%= f.text_field :spayneuter, class: "form-control", placeholder: "enter name", autofocus:true %>
-    </div>
-</div>
-<div class = "form-group">
-  <div class = "control-label col-sm-2">
-    <%= f.label :"is cat currently at colony"%>
-  </div>
-    <div class = "col-sm-9">
+    <br>
+    <div class = "form-group">
+      <div class = "control-label col-sm-2">
+        <%= f.label :currentlyatcolony, "is cat currently at colony" %>
+      </div>
+      <div class = "col-sm-9">
         <%= f.text_field :currentlyatcolony, class: "form-control", placeholder: "true/false", autofocus:true %>
+      </div>
+    </div>
+    <br>
+    <div class = "form-group">
+      <div class = "control-label col-sm-2">
+        <%= f.label :notes, "additional notes about cat" %>
+      </div>
+      <div class = "col-sm-9">
+        <%= f.text_area :notes, class: "form-control", placeholder: "enter additional notes", autofocus: true %>
+      </div>
+    </div>
+    <br>
+    <div class = "form-group">
+      <div class = "control-label col-sm-2">
+        <%= f.label :vaxdate, "date of most current vaccinations" %>
+      </div>
+      <div class = "col-sm-9">
+        <%= f.date_field :vaxdate, class: "form-control", placeholder: "true/false", autofocus: true %>
+      </div>
+    </div>
+    <br>
+    <div class = "form-group">
+      <div class = "control-label col-sm-2">
+        <%= f.label :fleatx, "date of most current flea treatment" %>
+      </div>
+      <br>
+      <div class = "col-sm-9">
+        <%= f.date_field :fleatx, class: "form-control", placeholder: "date of last flea treatment", autofocus: true %>
+      </div>
+    </div>
+    <br>
+    <div class = "form-group">
+      <div class = "control-label col-sm-2">
+        <%= f.label :firstdateseen, "first date seen" %>
+      </div>
+      <div class = "col-sm-9">
+        <%= f.date_field :firstdateseen, class: "form-control", placeholder: "date first seen", autofocus: true %>
+      </div>
+    </div>
+  <br>
+    <div class="form-group">
+      <div class = "col-sm-offset-2 col-sm-10">
+        <%= f.submit "create", class: "btn btn-primary btn-lg" %>
+      </div>
     </div>
 </div>
-<div class = "form-group">
-  <div class = "control-label col-sm-2">
-    <%= f.label :"additional notes"%>
-  </div>
-    <div class = "col-sm-9">
-        <%= f.text_area :notes, class: "form-control", placeholder: "enter additional notes", autofocus:true %>
-    </div>
-</div>
-<div class = "form-group">
-  <div class = "control-label col-sm-2">
-    <%= f.label :"date of most current vaccinations"%>
-  </div>
-    <div class = "col-sm-9">
-        <%= f.date_field :vaxdate, class: "form-control", placeholder: "true/false", autofocus:true %>
-    </div>
-</div>
-<div class = "form-group">
-  <div class = "control-label col-sm-2">
-    <%= f.label :"date of most current flea treatment"%>
-  </div>
-    <div class = "col-sm-9">
-        <%= f.date_field :fleatx, class: "form-control", placeholder: "date of last flea treatment", autofocus:true %>
-    </div>
-</div>
-<div class = "form-group">
-  <div class = "control-label col-sm-2">
-    <%= f.label :"first date seen"%>
-  </div>
-    <div class = "col-sm-9">
-        <%= f.date_field :firstdateseen, class: "form-control", placeholder: "date first seen", autofocus:true %>
-    </div>
-</div>
-
-<div class="form-group">
-  <div class = "col-sm-offset-2 col-sm-10">
-    <%= f.submit "create", class: "btn btn-primary btn-lg"%>
-  </div>
 </div>
 <%end%>
+</class> 
